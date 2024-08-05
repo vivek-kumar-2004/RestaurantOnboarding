@@ -36,9 +36,9 @@ const TimingsManagement = () => {
     };
 
     return (
-        <div className="container mx-auto p-4 ">
-            <h2 className="text-4xl text-center font-semibold mb-8 shadow-2xl transition-transform transform font-serif mt-16">
-                Timings Management
+        <div className="w-full h-screen bg-zinc-200 container mx-auto p-4">
+            <h2 className="text-3xl text-blue-950 text-center font-bold mb-6 pt-8 mt-[6vw]">
+                TIMINGS MANAGEMENT
             </h2>
             <form onSubmit={onSubmit} className="max-w-md mx-auto bg-white p-8 rounded-lg shadow-2xl  transition-transform transform">
                 <div className="mb-4">
@@ -63,7 +63,7 @@ const TimingsManagement = () => {
                         required
                     />
                 </div>
-                <button type="submit" className="w-full bg-red-700 text-white font-semibold text-lg py-2 rounded-full ">
+                <button type="submit" className="w-full bg-red-900 text-white font-semibold text-lg py-2 rounded-lg ">
                     Save
                 </button>
             </form>
