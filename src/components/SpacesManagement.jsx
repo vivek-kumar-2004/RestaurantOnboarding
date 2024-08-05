@@ -20,9 +20,9 @@ const SpacesManagement = () => {
 
     return (
         <div className='w-full h-screen bg-zinc-200'>
-            <h2 className="text-3xl text-blue-950 text-center font-bold mb-6 pt-8">SPACE MANAGEMENT</h2>
-            <Link to="/AddNewAmenity"><button className='py-1 px-3  bg-red-950  rounded-md text-white ml-6 mb-6' >Add New Spaces</button></Link>
-            <div className='w-full flex  flex-wrap gap-5  px-[1.6vw] pt-4 pb-4 '>
+            <h2 className="text-3xl text-blue-950 text-center font-bold mb-8 pt-8">SPACE MANAGEMENT</h2>
+            <Link to="/AddNewAmenity"><button className='py-1 px-3  bg-red-950  rounded-md text-white ml-9 mb-6' >Add New Spaces</button></Link>
+            <div className='w-full flex  flex-wrap gap-6 px-[2.1vw] pt-4 pb-4 '>
                 {space.map((p,index)=>(
                 <Link key={index} className='w-[14.5vw] h-[34vh] mt-2 bg-white p-3 flex flex-col items-center justify-between border rounded-lg shadow-2xl  transition-transform transform hover:scale-105 ' to={`/menuItemsDetails/${p._id}`}>
                     <div className='w-full h-[70%] mb-2'>

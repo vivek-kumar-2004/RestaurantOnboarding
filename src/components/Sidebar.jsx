@@ -18,10 +18,10 @@ const Sidebar = () => {
 
     return (
         <div className="flex bg-[#252C0D] ">
-            <div className={` ${open ? "w-[17vw]" : "w-20 "} bg-dark-purple h-screen p-5 pt-8 relative duration-300 fixed `}>
+            <div className={` ${open ? "w-[18vw]" : "w-20 "} bg-dark-purple h-screen p-5 pt-8 relative duration-300 transition-all fixed `}>
                 <img
                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAAaVBMVEX///8AAAAEBAT8/PxVVVUbGxsYGBilpaVoaGgfHx/KysqysrJSUlIaGhpOTk6enp729vbp6enc3NwlJSXj4+OGhoYxMTEODg61tbVkZGSqqqqioqIqKirx8fFvb29DQ0N7e3s4ODjIyMihkwGrAAACFUlEQVR4nO3dWVYCMRCF4RjGZpJJURAQ979IbfXoA1WN5Uulcv5vBfceDekhFCkBAAAAAAAAAAAAAOJY3i/m+a5webC4X3b3OAy9Q/7VcNRRo/fsHc9i3FOLjL2z2Yy1HiPvZFZ7ZZ3PvYNZDeQVf/DOZScv+Jl3LLu+WKTxjmXXiEWK3wevZbGId6r/oEhpalkjO7HIi3csuxexSLArrdZJLDLxjmU3EYvE29rljT2lVbC9vVkpRdJ6453NYrPWeqR0PIX5DM6no97jw/bhPCy+TB6eH7adNQAAAAAAAAAANepN+035D7Gb/lQ/rPVp8ugd8q8eldduX0bF/zF+ZeW0VmvqHc5mqvVY77yj2ey0lz21vNVde+eyk1+HvnrHsnsVi1y8Y9ldxCLBlnpLPh3kneo/KFKauotUs9gv3rHs5I/fajbEai5RUt87l5V2FHAbbLmrl/HBbqzyk9YjpX0lt7r1PHyI8zjo6cbjIAAAAAAAAABAhdov5ns/o77p9hfzj3Fmo+Rxx6iEWoZXrAbe2WzUcSIL72RWM7nHm3cuO/n1W5yF/kMeOVnNWKri34Fe4yhgceouEnCNyAMng40Ja8kjQMOd8dcObIWbW6yNyV0Gu2b8+M9STtbsvYNZqV/pCXa1JY+bbPVCNTl1HdkalX/D/m3eeRLw8ycJBsXvjLmZHW78JAEAAAAAAAAAAAAAoCjvhdQ5hX0cY4IAAAAASUVORK5CYII="
-                    className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple border-2 rounded-md ${!open && "rotate-180"}`}
+                    className={`absolute cursor-pointer -right-4 mr-1 top-9  mt-2 w-7 border-dark-purple border-2 rounded-md ${!open && "rotate-180"}`}
                     onClick={() => setOpen(!open)}
                 />
                 <div className="flex gap-x-4 items-center">
