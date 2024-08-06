@@ -15,7 +15,10 @@ const SignIn = () => {
     const onSubmit = async e => {
         e.preventDefault();
         try {
-            await axios.post('/api/auth/login', formData);
+            await axios.post('/api/auth/login', formData).then(response =>{
+                localStorage.setItem('token', response.data.token);
+                localStorage.setItem('user', JSON.stringify(response.data.user));
+            });
             navigate('/admin');
         } catch (err) {
             console.error(err);

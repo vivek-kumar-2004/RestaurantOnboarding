@@ -30,9 +30,9 @@ const  Home = () => {
     <div className="">
       <Navbar/>
       <div className='w-full h-[90vh]  flex justify-between pt-8 px-10 mb-16'>
-            <div className='w-1/2  pt-24' >
-                <h1 className='text-6xl font-bold'>Register Your restaurant</h1>
-                <p className='text-lg leading-6 font-semibold text-zinc-700 mt-8 mb-8'>Welcome to the Food Delivery Admin Panel. Streamline your food delivery operations with our robust admin tools. Efficiently manage orders, restaurants, and users to ensure smooth and timely deliveries. Our platform empowers you to take control of every aspect of your service, enhancing productivity and customer satisfaction.</p>
+            <div className='w-1/2  pt-36' >
+                <h1 className='text-5xl font-bold'>Register Your Restaurant</h1>
+                <p className='text-m leading-6 tracking-tight font-semibold text-zinc-700 mt-8 mb-8 text-justify'>Welcome to the Food Delivery Admin Panel. Streamline your food delivery operations with our robust admin tools. Efficiently manage orders, restaurants, and users to ensure smooth and timely deliveries. Our platform empowers you to take control of every aspect of your service, enhancing productivity and customer satisfaction.</p>
                 <div className="flex space-x-4">
                     <Link to="/register">
                         <button className='py-1 px-4 bg-red-800 shadow rounded-md text-white font-semibold text-lg ml-1 mt-2'>Register</button>
@@ -56,8 +56,12 @@ const  Home = () => {
           </section>
         ))}
       </div>
-      <AboutUs/>
-      <Footer/>
+      <div id="about">
+        <AboutUs/>
+      </div>
+      <div id="footer">
+        <Footer/>
+      </div>
     </div>
     );
 };
