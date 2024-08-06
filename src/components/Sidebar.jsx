@@ -9,7 +9,7 @@ import { MdAccessTimeFilled } from "react-icons/md";
 const Sidebar = () => {
     const [open, setOpen] = useState(true);
     const Menus = [
-        { title: "Dashboard", icon: <IoHome />, path: "/admin/Dashboard" },
+        { title: "Dashboard", icon: <IoHome />, path: "/admin" },
         { title: "Menu", icon:<BiSolidFoodMenu />, gap: true, path: "/admin/Menu" },
         { title: "Amenity", icon:<BiSolidCool />, path: "/admin/Amenity" },
         { title: "Space", icon:<TbSpaces /> , path: "/admin/Space" },
