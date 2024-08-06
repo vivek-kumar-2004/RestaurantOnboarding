@@ -16,13 +16,14 @@ const SignIn = () => {
     const onSubmit = async e => {
         e.preventDefault();
         try {
-            await axios.post('/api/auth/login', formData).then(response =>{
-                localStorage.setItem('token', response.data.token);
-                localStorage.setItem('user', JSON.stringify(response.data.user));
-            });
+            const response = await axios.post('/api/auth/login', formData);
+            console.log("Login response:", response.data);
+            localStorage.setItem('token', response.data.token);
+            localStorage.setItem('user', JSON.stringify(response.data.user));
             navigate('/admin');
         } catch (err) {
             console.error(err);
+            alert('Login failed');
         }
     };
 
@@ -39,7 +40,7 @@ const SignIn = () => {
                         name="email"
                         value={formData.email}
                         onChange={onChange}
-                        className='outline-sky-600 border-2 border-sky-600 shadow rounded-md  bg-zinc-200 w-full h-10 p-3 mb-3 '
+                        className='outline-sky-600 border-2 border-sky-600 shadow rounded-md bg-zinc-200 w-full h-10 p-3 mb-3'
                         required
                     />
                 </div>
@@ -50,11 +51,11 @@ const SignIn = () => {
                         name="password"
                         value={formData.password}
                         onChange={onChange}
-                        className='outline-sky-600 border-2 border-sky-600 shadow rounded-md  bg-zinc-200 w-full h-10 p-3 mb-3 '
+                        className='outline-sky-600 border-2 border-sky-600 shadow rounded-md bg-zinc-200 w-full h-10 p-3 mb-3'
                         required
                     />
                 </div>
-                <button type="submit" className='py-1 w-full bg-red-700 shadow rounded-lg text-white font-semibold text-lg  mt-2' >Sign In</button>
+                <button type="submit" className='py-1 w-full bg-red-700 shadow rounded-lg text-white font-semibold text-lg mt-2'>Sign In</button>
             </form>
         </div>
         </>

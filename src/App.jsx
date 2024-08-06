@@ -14,6 +14,7 @@ import MenuManagement from './components/MenuManagement';
 import AmenitiesManagement from './components/AmenitiesManagement';
 import SpacesManagement from './components/SpacesManagement';
 import TimingsManagement from './components/TimingsManagement';
+import Dashboard_UI from './components/Dashboard_UI';
 
 const App = () => {
     return (
@@ -23,7 +24,7 @@ const App = () => {
             <Route path="/register" element={<Register />} />
             <Route path="/signin" element={<SignIn />} />
             <Route path="/admin" element={<AdminDashboard />}>
-                <Route path="Dashboard" element={<Home />} />
+                <Route path="" element={<Dashboard_UI/>} />
                 <Route path="Menu" element={<MenuManagement />} />
                 <Route path="Amenity" element={<AmenitiesManagement />} />
                 <Route path="Space" element={<SpacesManagement />} />
