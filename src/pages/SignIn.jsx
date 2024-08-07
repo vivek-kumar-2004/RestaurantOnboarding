@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from '../axiosConfig';
 import { useNavigate } from 'react-router-dom';
+import { FaBackward } from "react-icons/fa";
 
 const SignIn = () => {
     const [formData, setFormData] = useState({
@@ -27,6 +28,7 @@ const SignIn = () => {
     };
 
     return (
+<<<<<<< HEAD
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-200">
             <div className="bg-white p-10 rounded-lg shadow-2xl w-full max-w-md">
             <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">Sign In</h2>
@@ -61,7 +63,39 @@ const SignIn = () => {
                     Don't have an account? <a href="/register" className="text-red-600 hover:underline">Sign Up</a>
                 </p>
             </div>
+=======
+        <>
+        <button onClick={()=>navigate(-1)} className='py-2 px-5 font-bold text-white bg-blue-900 rounded-l-full m-5 flex items-center gap-2'><span><FaBackward /></span>Back</button>
+        <div className="flex flex-col items-center justify-center min-h-screen bg-white">
+            <img className='w-[20vw] mb-6' src="https://res.cloudinary.com/dqsqywrrk/image/upload/v1722526434/uploadFolder/lfoxgitnheoqp0vahiib.jpg" alt="" />
+            <form onSubmit={onSubmit} className="w-full max-w-sm max-h-sm m-0">
+                <div className="mb-4">
+                    <input
+                        type="email"
+                        placeholder='Email'
+                        name="email"
+                        value={formData.email}
+                        onChange={onChange}
+                        className='outline-sky-600 border-2 border-sky-600 shadow rounded-md bg-zinc-200 w-full h-10 p-3 mb-3'
+                        required
+                    />
+                </div>
+                <div className="mb-4">
+                    <input
+                        type="password"
+                        placeholder='Password'
+                        name="password"
+                        value={formData.password}
+                        onChange={onChange}
+                        className='outline-sky-600 border-2 border-sky-600 shadow rounded-md bg-zinc-200 w-full h-10 p-3 mb-3'
+                        required
+                    />
+                </div>
+                <button type="submit" className='py-1 w-full bg-red-700 shadow rounded-lg text-white font-semibold text-lg mt-2'>Sign In</button>
+            </form>
+>>>>>>> 3ec2a5f12de84b0fedf21e01189c602f744ba721
         </div>
+        </>
     );
 };
 
