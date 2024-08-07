@@ -6,6 +6,7 @@ import { FaArrowDown } from "react-icons/fa";
 import { FaArrowUp } from "react-icons/fa";
 import { Line, Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, LineElement, BarElement, Title, Tooltip, Legend, PointElement } from 'chart.js';
+import RestaurantTimings from './RestaurantTimings';
 
 
 ChartJS.register(
@@ -66,8 +67,9 @@ function Dashboard_UI() {
     ]
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
+            <RestaurantTimings/>
+            <h2 className="text-3xl text-center font-bold mb-8">Welcome to Restaurant Dashboard</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-                {/* Statistics Cards */}
                 <div className="bg-white p-6 rounded-lg shadow-lg flex items-center justify-between">
                     <div className="flex items-center">
                         <div className="w-14 h-14 bg-black text-white rounded-full flex items-center justify-center text-2xl mr-4">
@@ -138,7 +140,7 @@ function Dashboard_UI() {
                 <h2 className="text-gray-600 text-lg font-semibold mb-1 mt-3 pb-5 border-b-2">Trending Orders</h2>
                 <div className='flex gap-10'>
                     {trending_orders.map((item,i)=>(
-                        <div  className='w-[16.5vw] h-[30vh]  bg-white flex flex-col items-center border rounded-md overflow-hidden shadow-2xl transition-transform transform hover:scale-105'>
+                        <div key={i}  className='w-[16.5vw] h-[30vh]  bg-white flex flex-col items-center border rounded-md overflow-hidden shadow-2xl transition-transform transform hover:scale-105'>
                             <div className='w-full h-[55%] mb-2 '>
                                 <img className='w-[100%] h-[100%] object-cover' src={item.src} alt="" />
                             </div>

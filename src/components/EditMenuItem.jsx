@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import axios from '../axiosConfig';
 import { toast } from 'react-toastify';
 
-function EditMenuItem() {
+function EditMenuItem({ onEditComplete }) {
     const [product, setProduct] = useState({
         imageUrl: '',
         itemTitle: '',
@@ -34,53 +34,59 @@ function EditMenuItem() {
         try {
             await axios.put(`/api/restaurant/editMenuItem/${id}`, product);
             toast.success("Product edited successfully");
-            navigate("/admin/Menu");
+            if (onEditComplete) onEditComplete(); 
         } catch (err) {
             console.error('Error editing the product:', err);
         }
     };
 
     return (
-        <div className='w-full h-screen bg-[#F9F4F3]'>
-            <div className='flex justify-center translate-y-[50%] '>
-            <form className='w-[40vw] h-[65vh]' onSubmit={handleEdit}>
-                <h1 className='font-bold text-3xl mb-5 text-blue-950'>Edit Item</h1>
-                <input
-                    className='outline-sky-600 border-2 border-sky-600 shadow rounded-md  bg-zinc-200 w-full h-10 p-3 mb-3'
-                    type="url"
-                    placeholder='Image link'
-                    onChange={handleChange}
-                    value={product.imageUrl}
-                    name="imageUrl"
-                    required
-                />
-                <input
-                    className='outline-sky-600 border-2 border-sky-600 shadow rounded-md  bg-zinc-200 w-full h-10 p-3 mb-3'
-                    type="text"
-                    placeholder='Title'
-                    onChange={handleChange}
-                    value={product.itemTitle}
-                    name="itemTitle"
-                    required
-                />
-                <input
-                    className='outline-sky-600 border-2 border-sky-600 shadow rounded-md  bg-zinc-200 w-full h-10 p-3 mb-3'
-                    type="number"
-                    placeholder='Price'
-                    onChange={handleChange}
-                    value={product.price}
-                    name="price"
-                    required
-                />
-                <button
-                    type="submit"
-                    className='py-1 px-3  bg-red-900 shadow rounded-md text-white  mt-2 mb-6'
-                >
-                    Edit Item
-                </button>
-            </form>
+        
+            <div className="bg-white p-10  rounded-lg shadow-2xl w-1/2">
+                <h1 className="text-2xl font-bold  text-gray-800 mb-16">EDIT MENU ITEM</h1>
+                <form onSubmit={handleEdit} className="space-y-6">
+                    <div>
+                        <label htmlFor="imageUrl" className="block text-sm font-medium text-gray-700">Image URL</label>
+                        <input
+                            type="url"
+                            placeholder='Image link'
+                            name="imageUrl"
+                            value={product.imageUrl}
+                            onChange={handleChange}
+                            className='mt-1 border border-gray-300 rounded-md w-full p-3 focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent'
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="itemTitle" className="block text-sm font-medium text-gray-700">Title</label>
+                        <input
+                            type="text"
+                            placeholder='Title'
+                            name="itemTitle"
+                            value={product.itemTitle}
+                            onChange={handleChange}
+                            className='mt-1 border border-gray-300 rounded-md w-full p-3 focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent'
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="price" className="block text-sm font-medium text-gray-700">Price</label>
+                        <input
+                            type="number"
+                            placeholder='Price'
+                            name="price"
+                            value={product.price}
+                            onChange={handleChange}
+                            className='mt-1 border border-gray-300 rounded-md w-full p-3 focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent'
+                            required
+                        />
+                    </div>
+                    <button type="submit" className='w-full bg-green-900 text-white py-2 rounded-lg text-lg font-semibold hover:bg-green-700 transition duration-200'>
+                        Edit Item
+                    </button>
+                </form>
             </div>
-        </div>
+        
     );
 }
 

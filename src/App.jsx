@@ -9,11 +9,9 @@ import CreateMenuItem from './components/CreateMenuItem';
 import MenuItemsDetails from './components/MenuItemsDetails';
 import CreateAmenities from './components/CreateAmenities';
 import CreateSpace from './components/CreateSpace';
-import EditMenuItem from './components/EditMenuItem';
 import MenuManagement from './components/MenuManagement';
 import AmenitiesManagement from './components/AmenitiesManagement';
 import SpacesManagement from './components/SpacesManagement';
-import TimingsManagement from './components/TimingsManagement';
 import Dashboard_UI from './components/Dashboard_UI';
 
 const App = () => {
@@ -28,10 +26,8 @@ const App = () => {
                 <Route path="Menu" element={<MenuManagement />} />
                 <Route path="Amenity" element={<AmenitiesManagement />} />
                 <Route path="Space" element={<SpacesManagement />} />
-                <Route path="Timings" element={<TimingsManagement />} />
                 <Route path='CreateMenuItem' element={<CreateMenuItem/>} />
                 <Route path='menuItemsDetails/:id' element={<MenuItemsDetails/>} />
-                <Route path='editMenuItem/:id' element={<EditMenuItem/>} />
                 <Route path='AddNewAmenity' element={<CreateAmenities/>} />
                 <Route path='AddNewSpace' element={<CreateSpace/>} />
             </Route>

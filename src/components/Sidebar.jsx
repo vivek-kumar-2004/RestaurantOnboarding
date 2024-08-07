@@ -13,7 +13,6 @@ const Sidebar = () => {
         { title: "Menu", icon:<BiSolidFoodMenu />, gap: true, path: "/admin/Menu" },
         { title: "Amenity", icon:<BiSolidCool />, path: "/admin/Amenity" },
         { title: "Space", icon:<TbSpaces /> , path: "/admin/Space" },
-        { title: "Timings", icon:<MdAccessTimeFilled /> , path: "/admin/Timings" },
     ];
 
     return (

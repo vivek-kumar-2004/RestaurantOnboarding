@@ -30,11 +30,11 @@ const MenuManagement = () => {
 
     return (
         <div className='w-full bg-gray-100'>
-            <div className='sticky top-0 bg-zinc-200 z-50 shadow-lg '>
-                <h2 className="text-3xl text-red-950 text-center font-bold mb-8 pt-6">MENU MANAGEMENT</h2>
+            <div className='sticky top-0 z-50 bg-gray-100 shadow-lg '>
+                <h2 className="text-3xl text-black text-center font-bold mb-8 pt-6">MENU MANAGEMENT</h2>
                 <div className='flex justify-between item-center px-[2.1vw] py-2 '>
                     <Link to="/admin/CreateMenuItem">
-                        <button className='py-1 px-3 bg-red-950 rounded-md text-white mb-6'>Add New Items</button>
+                        <button className='py-1 px-3 bg-red-900 rounded-md text-white mb-6'>Add New Items</button>
                     </Link>
                     <div>
                         <input
@@ -55,7 +55,7 @@ const MenuManagement = () => {
                         </div>
                         <h1 className='font-bold tracking-tight text-blue-950 leading-5 text-xl mb-1'>{p.itemTitle}</h1>
                         <h1 className='tracking-tight leading-5 text-green-700 font-bold mb-2'><span className='font-bold text-blue-950 text-m mr-1'>Price:</span>${p.price}</h1>
-                        <Link className='py-1 px-3 bg-red-950 rounded-md text-white' to={`/admin/menuItemsDetails/${p._id}`}>View Item</Link>
+                        <Link className='py-1 px-3 bg-red-900 rounded-md text-white' to={`/admin/menuItemsDetails/${p._id}`}>View Item</Link>
                     </div>
                 ))}
             </div>
