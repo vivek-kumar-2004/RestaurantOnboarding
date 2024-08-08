@@ -10,7 +10,6 @@ function EditMenuItem({ onEditComplete }) {
         price: '',
     });
     const { id } = useParams();
-    const navigate = useNavigate();
 
     const getSingleProduct = async () => {
         try {
@@ -81,7 +80,7 @@ function EditMenuItem({ onEditComplete }) {
                             required
                         />
                     </div>
-                    <button type="submit" className='w-full bg-green-900 text-white py-2 rounded-lg text-lg font-semibold hover:bg-green-700 transition duration-200'>
+                    <button type="submit" className='w-full bg-red-800 text-white py-2 rounded-lg text-lg font-semibold hover:bg-red-700 transition duration-200'>
                         Edit Item
                     </button>
                 </form>

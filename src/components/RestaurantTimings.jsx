@@ -23,6 +23,10 @@ function RestaurantTimings() {
     }, []);
 
     const handleUpdate = async () => {
+        if (restaurantData.status === 'Open' && (!restaurantData.opening_time || !restaurantData.closing_time)) {
+            toast.warning("Please fill in both Opening Time and Closing Time before updating.");
+            return;
+        }
         try {
             const response = await axios.put('/api/restaurant/update-timing', {
                 id: restaurantData._id,
@@ -40,7 +44,7 @@ function RestaurantTimings() {
     return (
         <div className='mb-14'>
             <div className="space-y-4">
-                <h2 className="text-3xl text-center font-bold">Restaurant Status</h2>
+                <h2 className="text-3xl text-center font-bold mb-8">Welcome to Restaurant Dashboard</h2>
                 <label htmlFor="status" className="block text-sm font-medium text-gray-700">Status</label>
                 <select
                     name="status"
@@ -62,7 +66,7 @@ function RestaurantTimings() {
                             value={restaurantData.opening_time}
                             onChange={(e) => setRestaurantData({ ...restaurantData, opening_time: e.target.value })}
                             className="w-full mt-1 border border-gray-300 rounded-md w-full p-3 focus:outline-none focus:ring-2 focus:ring-red-800 focus:border-transparent"
-                        />
+                        required/>
                         <label htmlFor="closing_time" className="block text-sm font-medium text-gray-700">Closing Time</label>
                         <input
                             type="time"
@@ -71,11 +75,11 @@ function RestaurantTimings() {
                             value={restaurantData.closing_time}
                             onChange={(e) => setRestaurantData({ ...restaurantData, closing_time: e.target.value })}
                             className="w-full mt-1 border border-gray-300 rounded-md w-full p-3 focus:outline-none focus:ring-2 focus:ring-red-800 focus:border-transparent"
-                        />
+                        required/>
                     </>
                 )}
 
-                <button onClick={handleUpdate} className="bg-red-900 text-white py-2 px-2 rounded-lg text-m font-semibold hover:bg-red-700 transition duration-200">
+                <button onClick={handleUpdate} className="bg-red-800 text-white py-2 px-2 rounded-lg text-m font-semibold hover:bg-red-700 transition duration-200">
                     Update Timings
                 </button>
             </div>

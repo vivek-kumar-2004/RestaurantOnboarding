@@ -44,7 +44,7 @@ function MenuItemsDetails() {
 
     return (
       <div className='pt-5 bg-gray-100'>
-          <button onClick={() => navigate(-1)} className="bg-blue-900 text-white text-lg font-semibold ml-10 py-1 px-3 rounded-md shadow hover:bg-blue-700 transition">
+          <button onClick={() => navigate(-1)} className="bg-red-800 text-white text-lg font-semibold ml-10 py-1 px-3 rounded-md shadow hover:bg-red-700 transition">
               <FaBackward className="inline-block mr-2" /> Back
           </button>
           <div className="flex  p-10 pt-5 gap-8">
@@ -55,7 +55,7 @@ function MenuItemsDetails() {
                 </div>
                 <h2 className="text-xl font-semibold text-gray-600 mb-4"><span className='font-bold text-black text-2xl text-m mr-1'>Item Name:</span>{product.itemTitle}</h2>
                 <p className="text-xl text-green-700 font-bold mb-4"><span className='font-bold text-black text-2xl mr-1'>Price:</span>${product.price}</p>
-                <button onClick={() => handleProductDelete(product._id)} className="bg-red-900 text-white text-lg font-semibold py-[5px] px-3 rounded-lg shadow hover:bg-red-700 transition">
+                <button onClick={() => handleProductDelete(product._id)} className="bg-red-800 text-white text-lg font-semibold py-[5px] px-3 rounded-lg shadow hover:bg-red-700 transition">
                         Delete Item
                 </button>
             </div>

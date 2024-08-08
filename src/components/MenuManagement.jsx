@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from '../axiosConfig';
+import { IoEyeOutline } from "react-icons/io5";
+
 
 const MenuManagement = () => {
     const [items, setItems] = useState([]);
@@ -29,12 +31,12 @@ const MenuManagement = () => {
     );
 
     return (
-        <div className='w-full bg-gray-100'>
-            <div className='sticky top-0 z-50 bg-gray-100 shadow-lg '>
-                <h2 className="text-3xl text-black text-center font-bold mb-8 pt-6">MENU MANAGEMENT</h2>
-                <div className='flex justify-between item-center px-[2.1vw] py-2 '>
+        <div className='w-full '>
+            <div className='sticky top-0 z-50 bg-white shadow-xl bg-white border-b-2 border-t-2 border-r-2 border-gray-400'>
+                <h2 className="text-3xl text-black text-center font-bold  pt-3 mb-4">Menu Management</h2>
+                <div className='flex justify-between item-center px-[2.8vw] '>
                     <Link to="/admin/CreateMenuItem">
-                        <button className='py-1 px-3 bg-red-900 rounded-md text-white mb-6'>Add New Items</button>
+                        <button className='py-2 px-3 bg-red-800 rounded-lg text-white font-semibold mb-6'>Add New Items</button>
                     </Link>
                     <div>
                         <input
@@ -42,20 +44,24 @@ const MenuManagement = () => {
                             placeholder="Search items..."
                             value={searchQuery}
                             onChange={handleSearch}
-                            className="py-[5px] px-3 w-[20vw] rounded-lg outline-sky-600 border-2 border-red-950"
+                            className="py-[5px] px-3 w-[20vw] rounded-lg outline-sky-600 border-2 border-red-950 bg-gray-100"
                         />
                     </div>
                 </div>
             </div>
-            <div className='w-full flex flex-wrap gap-3 px-[2.6vw] pt-4 pb-4'>
+            <div className='w-full h-auto flex flex-wrap gap-6 px-[3vw] pt-7 pb-4 bg-white border-r-2 border-gray-400'>
                 {filteredItems.map((p, index) => (
-                    <div key={index} className='w-[14.5vw] h-[42vh] mt-2 bg-white p-3 flex flex-col items-center justify-between border rounded-lg shadow-2xl transition-transform transform hover:scale-105'>
-                        <div className='w-full h-[70%] mb-2 overflow-hidden'>
-                            <img className='w-[100%] h-[100%] object-cover' src={`${p.imageUrl}`} alt="" />
+                    <div key={index}  className='w-[17.5vw] h-[30vh] pb-3  bg-white flex flex-col items-center border rounded-md overflow-hidden shadow-2xl '>
+                        <div className='w-full h-[70%] mb-2  '>
+                            <img className='w-[100%] h-[100%] object-cover object-center' src={p.imageUrl} alt="" />
                         </div>
-                        <h1 className='font-bold tracking-tight text-blue-950 leading-5 text-xl mb-1'>{p.itemTitle}</h1>
-                        <h1 className='tracking-tight leading-5 text-green-700 font-bold mb-2'><span className='font-bold text-blue-950 text-m mr-1'>Price:</span>${p.price}</h1>
-                        <Link className='py-1 px-3 bg-red-900 rounded-md text-white' to={`/admin/menuItemsDetails/${p._id}`}>View Item</Link>
+                        <div className='w-full h-[10vh]  flex justify-between px-3 pt-2'>
+                            <div>
+                                <h1 className='font-bold tracking-tight text-black leading-5 text-xl mb-1'>{p.itemTitle}</h1>
+                                <h1 className='font-bold tracking-tight leading-5 text-green-700 mb-2'><span className='font-semibold tracking-tight leading-5 text-black'>Price:</span> ${p.price}</h1>
+                            </div>
+                            <Link className=' w-[2vw] h-[2vw] bg-zinc-200 rounded-full text-black text-lg font-bold flex items-center justify-center hover:scale-110' to={`/admin/menuItemsDetails/${p._id}`}><IoEyeOutline /></Link>
+                        </div>
                     </div>
                 ))}
             </div>

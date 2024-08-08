@@ -45,55 +45,70 @@ function CreateMenuItem() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50">
-      <div className="bg-white p-10 rounded-lg shadow-2xl w-full max-w-md">
-        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">ADD NEW MENU ITEM</h2>
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <input
-              id="file_input"
-              type="file"
-              name="imageUrl"
-              onChange={onChange}
-              className="hidden"
-            />
-            <label htmlFor="file_input" className="flex items-center justify-between border border-gray-300 bg-white shadow rounded-md p-2 cursor-pointer">
-              <span className="text-gray-600">{fileName}</span>
-              <span className="bg-gray-200 text-gray-500 px-3 py-1">Choose File</span>
-            </label>
+    <div>
+      <button onClick={() => navigate(-1)} className="w-[5.5vw] ml-12 mt-4 py-1 font-semibold text-white text-lg bg-red-800 rounded-lg hover:bg-red-700 transition duration-200 flex items-center justify-center gap-2">
+            <FaBackward /> Back
+      </button>
+      <div className="flex items-center justify-center min-h-[90vh] bg-[#FFFFFF]">
+        <div className="flex  rounded-lg overflow-hidden max-w-[60vw] w-full">
+          <div className="hidden md:block md:w-1/2 bg-cover bg-center" style={{ backgroundImage: "url('https://i.pinimg.com/564x/fa/de/ac/fadeaceffee48fa8638d60860bcf1ae1.jpg')" }}></div> 
+
+          <div className="w-full md:w-1/2 p-8">
+            <form onSubmit={handleSubmit} className="space-y-5 shadow-2xl p-8 py-16">
+              <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">Add New Menu Item</h2>
+              <div>
+                <label htmlFor="file" className="block text-m font-semibold text-gray-700 mb-2">Upload Image</label>
+                  <input
+                    id="file_input"
+                    type="file"
+                    name="imageUrl"
+                    onChange={onChange}
+                    className="hidden "
+                  />
+                <label htmlFor="file_input" className="flex items-center justify-between border border-gray-300 bg-white/80 shadow-xl rounded-md p-2 cursor-pointer">
+                  <span className="text-gray-600">{fileName}</span>
+                  <span className="bg-gray-200 text-gray-500 px-3 py-1 rounded-md">Choose File</span>
+                </label>
+              </div>
+              <div>
+                <label htmlFor="itemTitle" className="block text-m font-semibold text-gray-700 ">Item Name</label>
+                <input
+                  type="text"
+                  name="itemTitle"
+                  value={menuItems.itemTitle}
+                  onChange={onChange}
+                  className="mt-1 border border-gray-300 rounded-md w-full p-3 shadow-xl focus:outline-none focus:ring-2 focus:ring-red-800 focus:border-transparent"
+                  placeholder="Enter item name"
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="price" className="block text-m font-semibold text-gray-700">Price</label>
+                <input
+                  type="number"
+                  name="price"
+                  value={menuItems.price}
+                  onChange={onChange}
+                  className="mt-1 border border-gray-300 rounded-md w-full p-3 shadow-xl focus:outline-none focus:ring-2 focus:ring-red-800 focus:border-transparent"
+                  placeholder="Enter price"
+                  required
+                />
+              </div>
+              <button type="submit" className="w-full bg-red-800 text-white py-2 rounded-lg text-lg font-semibold hover:bg-red-700 transition duration-200">
+                Add New Item
+              </button>
+            </form>
           </div>
-          <div>
-            <label htmlFor="itemTitle" className="block text-sm font-medium text-gray-700">Item Name</label>
-            <input
-              type="text"
-              name="itemTitle"
-              value={menuItems.itemTitle}
-              onChange={onChange}
-              className='mt-1 border border-gray-300 rounded-md w-full p-3 focus:outline-none focus:ring-2 focus:ring-red-900 focus:border-transparent'
-              placeholder="Enter item name"
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="price" className="block text-sm font-medium text-gray-700">Price</label>
-            <input
-              type="number"
-              name="price"
-              value={menuItems.price}
-              onChange={onChange}
-              className='mt-1 border border-gray-300 rounded-md w-full p-3 focus:outline-none focus:ring-2 focus:ring-red-900 focus:border-transparent'
-              placeholder="Enter price"
-              required
-            />
-          </div>
-          <button type="submit" className='w-full bg-red-900 text-white py-2 rounded-lg text-lg font-semibold hover:bg-red-700 transition duration-200'>Add New Item</button>
-        </form>
-        <button onClick={() => navigate(-1)} className='w-full mt-4 py-2 font-semibold text-white text-lg bg-blue-900 rounded-lg  hover:bg-blue-700 transition duration-200 flex items-center justify-center gap-2'>
-          <FaBackward /> Back
-        </button>
+        </div>
       </div>
     </div>
   );
 }
 
 export default CreateMenuItem;
+
+
+//https://i.pinimg.com/564x/85/d4/58/85d4581eaba089282c2a57fc413772b2.jpg
+
+
+//https://i.pinimg.com/564x/fa/de/ac/fadeaceffee48fa8638d60860bcf1ae1.jpg

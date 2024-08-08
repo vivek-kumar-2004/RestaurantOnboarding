@@ -68,7 +68,6 @@ function Dashboard_UI() {
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
             <RestaurantTimings/>
-            <h2 className="text-3xl text-center font-bold mb-8">Welcome to Restaurant Dashboard</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
                 <div className="bg-white p-6 rounded-lg shadow-lg flex items-center justify-between">
                     <div className="flex items-center">
@@ -86,7 +85,7 @@ function Dashboard_UI() {
                 </div>
                 <div className="bg-white p-6 rounded-lg shadow-lg flex items-center justify-between">
                     <div className="flex items-center">
-                        <div className="w-14 h-14 bg-red-900 text-white rounded-full flex items-center justify-center text-2xl mr-4">
+                        <div className="w-14 h-14 bg-red-800 text-white rounded-full flex items-center justify-center text-2xl mr-4">
                             <FaBoxOpen />
                         </div>
                         <div>
@@ -100,7 +99,7 @@ function Dashboard_UI() {
                 </div>
                 <div className="bg-white p-6 rounded-lg shadow-lg flex items-center justify-between">
                     <div className="flex items-center">
-                        <div className="w-14 h-14 bg-blue-800 text-white rounded-full flex items-center justify-center text-2xl mr-4">
+                        <div className="w-14 h-14 bg-blue-700 text-white rounded-full flex items-center justify-center text-2xl mr-4">
                             <FaStar />
                         </div>
                         <div>
