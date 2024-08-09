@@ -4,12 +4,15 @@ import { IoHome } from "react-icons/io5";
 import { BiSolidFoodMenu } from "react-icons/bi";
 import { BiSolidCool } from "react-icons/bi";
 import { TbSpaces } from "react-icons/tb";
-import { MdAccessTimeFilled } from "react-icons/md";
+// import { MdAccessTimeFilled } from "react-icons/md";
+import { FaCircleUser } from "react-icons/fa6";
+
 
 const Sidebar = () => {
     const [open, setOpen] = useState(true);
     const Menus = [
         { title: "Dashboard", icon: <IoHome />, path: "/admin" },
+        { title: "Profile", icon: <FaCircleUser />, path: "/admin" },
         { title: "Menu", icon:<BiSolidFoodMenu />, gap: true, path: "/admin/Menu" },
         { title: "Amenity", icon:<BiSolidCool />, path: "/admin/Amenity" },
         { title: "Space", icon:<TbSpaces /> , path: "/admin/Space" },
