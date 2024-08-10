@@ -1,40 +1,100 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from '../axiosConfig';
 import { toast } from 'react-toastify';
+import axios from '../axiosConfig';
+import { FaBackward } from "react-icons/fa";
 
 function CreateAmenities() {
-    const [ amenities, setAmenities ] = useState({
-        imageUrl:'',
-        amenityTitle:'',
+  const [ amenities, setAmenities ] = useState({
+    imageUrl:'',
+    amenityTitle:'',
+  });
+  const [file, setFile] = useState(null);
+  const [fileName, setFileName] = useState('Upload Image...');
+
+  const navigate = useNavigate();
+
+  const onChange = (e) => {
+    if (e.target.name === 'imageUrl') {
+      setFile(e.target.files[0]);
+      setFileName(e.target.files[0].name);
+    } else {
+      setAmenities({ ...amenities, [e.target.name]: e.target.value });
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('amenityTitle', amenities.amenityTitle);
+
+
+    try {
+      await axios.post('/api/restaurant/addAmenity', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
       });
-    
-      const navigate=useNavigate();
-      const onChange = (e) => setAmenities({ ...amenities, [e.target.name]: e.target.value });
-      console.log(amenities);
-      const handleSubmit= async (e) =>{
-        e.preventDefault();
-        navigate(-1);
-    
-      console.log(amenities);
-      try {
-            await axios.post('/api/restaurant/addAmenity', amenities);
-        } catch (err) {
-            console.error(err);
-        } 
       toast.success("Amenity added successfully");
-     }  
+      navigate(-1);
+    } catch (err) {
+      console.error(err);
+      toast.error("Failed to add amenity");
+    }
+  };
 
   return (
-    <div className='flex justify-center translate-y-[50%] '>
-        <form className='w-[40vw] h-[65vh]' action="" onSubmit={handleSubmit}>
-            <h1 className='font-bold text-2xl mb-5'>Add New Amenity</h1>
-            <input className='outline-sky-600 border-2 border-sky-600 shadow rounded-md  bg-zinc-200 w-full h-10 p-3 mb-3' type="url" placeholder='imageUrl' onChange={onChange} name="imageUrl" value={amenities.imageUrl} required/>
-            <input className='outline-sky-600 border-2 border-sky-600 shadow rounded-md  bg-zinc-200 w-full h-10 p-3 mb-3' type="text" placeholder='amenityTitle' onChange={onChange} name="amenityTitle" value={amenities.amenityTitle} required/>
-            <button className='py-1 px-3  bg-red-700 shadow rounded-md text-white  mt-2 mb-6' >Add New Amenity</button>
-        </form>
+    <div>
+      <button onClick={() => navigate(-1)} className="w-[5.5vw] ml-12 mt-4 py-1 font-semibold text-white text-lg bg-red-800 rounded-lg hover:bg-red-700 transition duration-200 flex items-center justify-center gap-2">
+            <FaBackward /> Back
+      </button>
+      <div className="flex items-center translate-x-[14%] min-h-[90vh] bg-[#FFFFFF] ">
+        <div className="flex  rounded-lg overflow-hidden max-w-[70vw] w-full ">
+          <div className='w-1/2'>
+            <img className='w-full h-full object-contain' src="https://res.cloudinary.com/dqsqywrrk/image/upload/v1723290703/uploadFolder/lrcyuvmhjkq7yjzup1bd.jpg" alt="" />
+          </div>
+
+          <div className="w-full md:w-[42%] p-8 -ml-[6vw]">
+            <form onSubmit={handleSubmit} className="space-y-5 shadow-xl p-8 py-16">
+              <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">Add New Amenity</h2>
+              <div>
+                <label htmlFor="file" className="block text-m font-semibold text-gray-700 mb-2">Upload Image</label>
+                  <input
+                    id="file_input"
+                    type="file"
+                    name="imageUrl"
+                    onChange={onChange}
+                    className="hidden "
+                  />
+                <label htmlFor="file_input" className="flex items-center justify-between border border-gray-300 bg-white/80 shadow-xl rounded-md p-2 cursor-pointer">
+                  <span className="text-gray-600">{fileName}</span>
+                  <span className="bg-gray-200 text-gray-500 px-3 py-1 rounded-md">Choose File</span>
+                </label>
+              </div>
+              <div>
+                <label htmlFor="amenityTitle" className="block text-m font-semibold text-gray-700 ">Amenity Name</label>
+                <input
+                  type="text"
+                  name="amenityTitle"
+                  value={amenities.amenityTitle}
+                  onChange={onChange}
+                  className="mt-1 border border-gray-300 rounded-md w-full p-3 shadow-xl focus:outline-none focus:ring-2 focus:ring-red-800 focus:border-transparent"
+                  placeholder="Enter amenity name"
+                  required
+                />
+              </div>
+              <button type="submit" className="w-full bg-red-800 text-white py-2 rounded-lg text-lg font-semibold hover:bg-red-700 transition duration-200">
+                Add New Amenity
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default CreateAmenities
+export default CreateAmenities;
+
+

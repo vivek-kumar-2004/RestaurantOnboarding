@@ -51,10 +51,12 @@ function CreateMenuItem() {
       </button>
       <div className="flex items-center justify-center min-h-[90vh] bg-[#FFFFFF]">
         <div className="flex  rounded-lg overflow-hidden max-w-[60vw] w-full">
-          <div className="hidden md:block md:w-1/2 bg-cover bg-center" style={{ backgroundImage: "url('https://i.pinimg.com/564x/fa/de/ac/fadeaceffee48fa8638d60860bcf1ae1.jpg')" }}></div> 
+          <div className='w-1/2'>
+            <img className='w-full h-full object-contain' src="https://res.cloudinary.com/dqsqywrrk/image/upload/v1723284124/uploadFolder/rjzuuq4rntgjc1bfgrka.jpg" alt="" />
+          </div>
 
           <div className="w-full md:w-1/2 p-8">
-            <form onSubmit={handleSubmit} className="space-y-5 shadow-2xl p-8 py-16">
+            <form onSubmit={handleSubmit} className="space-y-5 shadow-xl p-8 py-11">
               <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">Add New Menu Item</h2>
               <div>
                 <label htmlFor="file" className="block text-m font-semibold text-gray-700 mb-2">Upload Image</label>

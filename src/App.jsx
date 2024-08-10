@@ -13,6 +13,8 @@ import MenuManagement from './components/MenuManagement';
 import AmenitiesManagement from './components/AmenitiesManagement';
 import SpacesManagement from './components/SpacesManagement';
 import Dashboard_UI from './components/Dashboard_UI';
+import AmenityDetails from './components/AmenityDetails';
+import Profile from './components/Profile';
 
 const App = () => {
     return (
@@ -23,12 +25,14 @@ const App = () => {
             <Route path="/signin" element={<SignIn />} />
             <Route path="/admin" element={<AdminDashboard />}>
                 <Route path="" element={<Dashboard_UI/>} />
-                <Route path="Menu" element={<MenuManagement />} />
-                <Route path="Amenity" element={<AmenitiesManagement />} />
-                <Route path="Space" element={<SpacesManagement />} />
+                <Route path="profile" element={<Profile/>} />
+                <Route path="menu" element={<MenuManagement />} />
                 <Route path='CreateMenuItem' element={<CreateMenuItem/>} />
                 <Route path='menuItemsDetails/:id' element={<MenuItemsDetails/>} />
-                <Route path='AddNewAmenity' element={<CreateAmenities/>} />
+                <Route path="amenity" element={<AmenitiesManagement />} />
+                <Route path="CreateAmenity" element={<CreateAmenities/>} />
+                <Route path='AmenityDetails/:id' element={<AmenityDetails/>} />
+                <Route path="Space" element={<SpacesManagement />} />
                 <Route path='AddNewSpace' element={<CreateSpace/>} />
             </Route>
         </Routes>

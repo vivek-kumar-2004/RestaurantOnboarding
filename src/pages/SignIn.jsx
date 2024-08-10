@@ -27,8 +27,12 @@ const SignIn = () => {
     };
 
     return (
-        <div className="flex relative  items-center justify-start  pl-44 min-h-screen  bg-cover bg-center" style={{ backgroundImage: "url('https://images.creativemarket.com/0.1.0/ps/2815532/5184/3456/m1/fpnw/wm0/1-6031-.jpg?1496845260&s=2bde8914a73645125dbdda6044ccd2c9')" }}>
-            <div className="absolute bg-white bg-opacity-50 backdrop-blur-md p-10 rounded-lg shadow-lg w-full max-w-md h-auto">
+        <div className="relative flex items-center pl-32 min-h-screen">
+            {/* Blurred Background Image */}
+            <div className="absolute inset-0 bg-cover bg-center  blur-sm" style={{ backgroundImage: "url('https://images.creativemarket.com/0.1.0/ps/2815532/5184/3456/m1/fpnw/wm0/1-6031-.jpg?1496845260&s=2bde8914a73645125dbdda6044ccd2c9')" }}></div>
+
+            {/* Form Container */}
+            <div className="relative bg-white bg-opacity-90 backdrop-blur-md p-10 rounded-lg shadow-lg w-full max-w-md">
                 <h2 className="text-3xl font-bold text-center mb-6">Sign In</h2>
                 <form onSubmit={onSubmit} className="space-y-6">
                     <div>
@@ -58,7 +62,7 @@ const SignIn = () => {
                     <button type="submit" className='w-full bg-red-800 text-white py-2 rounded-lg text-lg font-semibold hover:bg-red-700 transition duration-200'>Sign In</button>
                 </form>
                 <p className="mt-6 text-center text-m font-semibold">
-                    Don't have an account? <a href="/register" className="text-white hover:underline">Sign Up</a>
+                    Don't have an account? <a href="/register" className="text-red-800 hover:underline">Sign Up</a>
                 </p>
             </div>
         </div>

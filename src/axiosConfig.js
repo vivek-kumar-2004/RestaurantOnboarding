@@ -17,5 +17,19 @@ instance.interceptors.request.use(
         return Promise.reject(error);
     }
 );
+// Response Interceptor
+instance.interceptors.response.use(
+    response => response,
+    error => {
+        if (error.response && error.response.status === 401) {
+            // If the error status is 401, the token might be expired
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
+            window.location.href = '/signin'; // Redirect to sign-in page
+        }
+        return Promise.reject(error);
+    }
+);
+
 
 export default instance;

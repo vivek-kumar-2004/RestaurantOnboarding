@@ -30,10 +30,14 @@ const Register = () => {
     };
 
     return (
-        <div className="flex relative items-center justify-start pl-44 pt-3 min-h-screen bg-cover bg-center" style={{ backgroundImage: "url('https://images.creativemarket.com/0.1.0/ps/2815532/5184/3456/m1/fpnw/wm0/1-6031-.jpg?1496845260&s=2bde8914a73645125dbdda6044ccd2c9')" }}>
-            <div className="absolute bg-white bg-opacity-50 backdrop-blur-md p-10 pt-6 pb-6 rounded-lg shadow-lg w-full max-w-md h-auto ">
-                <h2 className="text-3xl font-bold text-center mb-6">Create an Account</h2>
-                <form onSubmit={onSubmit} className="space-y-4 ">
+        <div className="relative flex items-center pl-32 min-h-screen">
+            {/* Blurred Background Image */}
+            <div className="absolute inset-0 bg-cover bg-center blur-sm" style={{ backgroundImage: "url('https://images.creativemarket.com/0.1.0/ps/2815532/5184/3456/m1/fpnw/wm0/1-6031-.jpg?1496845260&s=2bde8914a73645125dbdda6044ccd2c9')" }}></div>
+
+            {/* Form Container */}
+            <div className="relative bg-white bg-opacity-90 backdrop-blur-md p-10 py-6 rounded-lg shadow-lg w-full max-w-md">
+                <h2 className="text-3xl font-bold text-center mb-4">Create an Account</h2>
+                <form onSubmit={onSubmit} className="space-y-4">
                     <div>
                         <label htmlFor="name" className="block text-m font-bold">Name</label>
                         <input
@@ -97,7 +101,7 @@ const Register = () => {
                     <button type="submit" className='w-full bg-red-800 text-white py-2 rounded-lg text-lg font-semibold hover:bg-red-700 transition duration-200'>Register</button>
                 </form>
                 <p className="mt-6 text-center text-m font-semibold">
-                    Already have an account? <a href="/signin" className="text-white hover:underline">Sign In</a>
+                    Already have an account? <a href="/signin" className="text-red-800 hover:underline">Sign In</a>
                 </p>
             </div>
         </div>
