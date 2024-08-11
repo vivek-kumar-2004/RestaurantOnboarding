@@ -11,6 +11,13 @@ const Sidebar = ({ open, setOpen }) => {
     const location = useLocation();
     console.log(location);
 
+    const handleLogout = () => {
+        if (window.confirm("Are you sure you want to logout?")) {
+            localStorage.removeItem('token'); 
+            navigate('/signin'); 
+        }
+    };
+
     const Menus = [
         { title: "Dashboard", icon: <IoHome />, path: "/admin" },
         { title: "Profile", icon: <FaCircleUser />, gap: true, path: "/admin/profile" },
@@ -60,8 +67,9 @@ const Sidebar = ({ open, setOpen }) => {
                         <NavLink  
                             to={Menu.path} 
                             key={index}
+                            onClick={handleLogout}
                             className={() => 
-                                `flex rounded-md p-2 cursor-pointer hover:bg-light-white text-white text-m items-center gap-x-4 ${Menu.gap ? "mt-48" : "mt-2"} ${ location.pathname === Menu.path ? "bg-red-950" : ""}`
+                                `flex rounded-md p-2 cursor-pointer hover:bg-light-white text-white text-m items-center gap-x-4 ${Menu.gap ? "mt-48" : "mt-2"} `
                             }
                         >
                             <div className="icon text-2xl font-bold">{Menu.icon}</div>

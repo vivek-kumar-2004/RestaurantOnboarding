@@ -3,16 +3,16 @@ import { useNavigate, useParams } from 'react-router-dom';
 import axios from '../axiosConfig';
 import { toast } from 'react-toastify';
 
-function EditAmenity({ onEditComplete }) {
+function EditSpace({ onEditComplete }) {
     const [product, setProduct] = useState({
         imageUrl: '',
-        amenityTitle: '',
+        spaceTitle: '',
     });
     const { id } = useParams();
 
     const getSingleProduct = async () => {
         try {
-            const response = await axios.get(`/api/restaurant/getAmenityById/${id}`);
+            const response = await axios.get(`/api/restaurant/getSpaceById/${id}`);
             setProduct(response.data.data);
         } catch (error) {
             console.error('Error fetching the product:', error);
@@ -30,7 +30,7 @@ function EditAmenity({ onEditComplete }) {
     const handleEdit = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`/api/restaurant/editAmenity/${id}`, product);
+            await axios.put(`/api/restaurant/editSpace/${id}`, product);
             toast.success("Amenity edited successfully");
             if (onEditComplete) onEditComplete(); 
         } catch (err) {
@@ -41,7 +41,7 @@ function EditAmenity({ onEditComplete }) {
     return (
         
             <div className="bg-white p-10  rounded-lg shadow-2xl w-1/2">
-                <h1 className="text-2xl font-bold  text-gray-800 mb-16">EDIT AMENITY</h1>
+                <h1 className="text-2xl font-bold  text-gray-800 mb-16">EDIT SPACE</h1>
                 <form onSubmit={handleEdit} className="space-y-6">
                     <div>
                         <label htmlFor="imageUrl" className="block text-sm font-medium text-gray-700">Image URL</label>
@@ -56,19 +56,19 @@ function EditAmenity({ onEditComplete }) {
                         />
                     </div>
                     <div>
-                        <label htmlFor="amenityTitle" className="block text-sm font-medium text-gray-700">Title</label>
+                        <label htmlFor="spaceTitle" className="block text-sm font-medium text-gray-700">Title</label>
                         <input
                             type="text"
                             placeholder='Title'
-                            name="amenityTitle"
-                            value={product.amenityTitle}
+                            name="spaceTitle"
+                            value={product.spaceTitle}
                             onChange={handleChange}
                             className='mt-1 border border-gray-300 rounded-md w-full p-3 focus:outline-none focus:ring-2 focus:ring-red-800 focus:border-transparent'
                             required
                         />
                     </div>
                     <button type="submit" className='w-full bg-red-800 text-white py-2 rounded-lg text-lg font-semibold hover:bg-red-700 transition duration-200'>
-                        Edit Amenity
+                        Edit Space
                     </button>
                 </form>
             </div>
@@ -76,4 +76,4 @@ function EditAmenity({ onEditComplete }) {
     );
 }
 
-export default EditAmenity;
+export default EditSpace;

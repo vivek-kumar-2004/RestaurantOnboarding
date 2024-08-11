@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from '../axiosConfig';
+import { toast } from 'react-toastify';
 
 const Profile = () => {
     const [restaurantData, setRestaurantData] = useState({
@@ -38,6 +39,7 @@ const Profile = () => {
         try {
             await axios.put('/api/auth/user', restaurantData);
             setIsEditing(false);
+            toast.success("Profile Updated successfully");
         } catch (err) {
             console.error('Failed to save changes:', err.message);
         }
