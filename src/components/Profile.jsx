@@ -47,7 +47,7 @@ const Profile = () => {
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-gray-100 to-gray-200">
-            <div className="bg-white shadow-lg rounded-lg overflow-hidden w-full h-[92vh] max-w-3xl transform transition-transform hover:scale-105 duration-300">
+            <div className="bg-white shadow-lg rounded-lg overflow-hidden w-full h-[100vh]  transform transition-transform duration-300">
                 <div className="p-8 ">
                     <div className="flex items-center justify-between mb-6">
                         <h2 className="text-4xl font-extrabold text-gray-800 mx-auto">Your Profile</h2>

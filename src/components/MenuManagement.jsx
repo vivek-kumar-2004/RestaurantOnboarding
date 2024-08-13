@@ -49,7 +49,7 @@ const MenuManagement = () => {
                     </div>
                 </div>
             </div>
-            <div className={`w-full h-auto  flex flex-wrap  transition-all duration-300 ease-in-out ${open ? 'gap-7 px-[3.8vw]' : 'gap-[0.9vw] px-[1.1vw]'} pt-7 pb-4 bg-white border-r-2 border-gray-400`}>
+            <div className={`w-full h-auto  flex flex-wrap  transition-all duration-300 ease-in-out ${open ? 'gap-7 px-[3.7vw]' : 'gap-[0.9vw] px-[1.1vw]'} pt-7 pb-4 bg-white border-r-2 border-gray-400`}>
                 {filteredItems.map((p, index) => (
                     <div key={index} className='w-[17.5vw] h-[30vh] pb-3 flex flex-col items-center  rounded-md overflow-hidden shadow-2xl  '>
                         <div className='w-full h-[70%] mb-2  '>
