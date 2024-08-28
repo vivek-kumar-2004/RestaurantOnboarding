@@ -16,6 +16,7 @@ import Dashboard_UI from './components/Dashboard_UI';
 import AmenityDetails from './components/AmenityDetails';
 import Profile from './components/Profile';
 import SpaceDetails from './components/SpaceDetails';
+import Admin from './components/Admin';
 
 const App = () => {
     return (
@@ -24,7 +25,7 @@ const App = () => {
             <Route path="/about" element={<AboutUs />} />
             <Route path="/register" element={<Register />} />
             <Route path="/signin" element={<SignIn />} />
-            <Route path="/admin" element={<AdminDashboard />}>
+            <Route path="/restaurant_manager" element={<AdminDashboard />}>
                 <Route path="" element={<Dashboard_UI/>} />
                 <Route path="profile" element={<Profile/>} />
                 <Route path="menu" element={<MenuManagement />} />
@@ -37,6 +38,7 @@ const App = () => {
                 <Route path='CreateSpace' element={<CreateSpace/>} />
                 <Route path='SpaceDetails/:id' element={<SpaceDetails/>} />
             </Route>
+            <Route path="/admin" element={<Admin/>}></Route>
         </Routes>
     );
 };

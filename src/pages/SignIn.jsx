@@ -18,8 +18,16 @@ const SignIn = () => {
             const response = await axios.post('/api/auth/login', formData);
             console.log("Login response:", response.data);
             localStorage.setItem('token', response.data.token);
-            localStorage.setItem('user', JSON.stringify(response.data.user));
-            navigate('/admin');
+            // localStorage.setItem('user', JSON.stringify(response.data.user));
+
+            // Role-based redirection
+            if (response.data.user.role === 'admin') {
+                navigate('/admin');
+            } else if (response.data.user.role === 'restaurant_manager') {
+                navigate('/RestaurantManager');
+            } else {
+                alert('Invalid role');
+            }
         } catch (err) {
             console.error(err);
             alert('Login failed');
@@ -29,14 +37,14 @@ const SignIn = () => {
     return (
         <div className="relative flex items-center pl-32 min-h-screen">
             {/* Blurred Background Image */}
-            <div className="absolute inset-0 bg-cover bg-center  blur-sm" style={{ backgroundImage: "url('https://images.creativemarket.com/0.1.0/ps/2815532/5184/3456/m1/fpnw/wm0/1-6031-.jpg?1496845260&s=2bde8914a73645125dbdda6044ccd2c9')" }}></div>
+            <div className="absolute inset-0 bg-cover bg-center blur-sm" style={{ backgroundImage: "url('https://images.creativemarket.com/0.1.0/ps/2815532/5184/3456/m1/fpnw/wm0/1-6031-.jpg?1496845260&s=2bde8914a73645125dbdda6044ccd2c9')" }}></div>
 
             {/* Form Container */}
             <div className="relative bg-white bg-opacity-90 backdrop-blur-md p-10 rounded-lg shadow-lg w-full max-w-md">
                 <h2 className="text-3xl font-bold text-center mb-6">Sign In</h2>
                 <form onSubmit={onSubmit} className="space-y-6">
                     <div>
-                        <label htmlFor="email" className="block text-m font-bold ">Email</label>
+                        <label htmlFor="email" className="block text-m font-bold">Email</label>
                         <input
                             type="email"
                             placeholder='Email'
@@ -48,7 +56,7 @@ const SignIn = () => {
                         />
                     </div>
                     <div>
-                        <label htmlFor="password" className="block text-m font-bold ">Password</label>
+                        <label htmlFor="password" className="block text-m font-bold">Password</label>
                         <input
                             type="password"
                             placeholder='Password'

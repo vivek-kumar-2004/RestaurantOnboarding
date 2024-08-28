@@ -11,7 +11,8 @@ const Register = () => {
         address: '',
         opening_time: '',
         closing_time: '',
-        status: 'Closed'
+        status: 'Closed',
+        role: 'restaurant_manager'  // Default role is 'restaurant_manager'
     });
 
     const navigate = useNavigate();
