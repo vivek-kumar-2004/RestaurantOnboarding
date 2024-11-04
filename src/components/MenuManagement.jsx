@@ -35,7 +35,7 @@ const MenuManagement = () => {
             <div className='sticky top-0 z-50 bg-white shadow-xl bg-white border-b-2 border-t-2 border-r-2 border-gray-400'>
                 <h2 className="text-3xl text-black text-center font-bold  pt-3 mb-4">Menu Management</h2>
                 <div className={`flex justify-between item-center  ${open ? 'px-[4.1vw]' : 'pl-[1.2vw] pr-[2.3vw]' } `}>
-                    <Link to="/admin/CreateMenuItem">
+                    <Link to="/restaurant_manager/CreateMenuItem">
                         <button className='py-2 px-3 bg-red-800 rounded-lg text-white font-semibold mb-6'>Add New Items</button>
                     </Link>
                     <div>
@@ -60,7 +60,7 @@ const MenuManagement = () => {
                                 <h1 className='font-bold tracking-tight text-black leading-5 text-xl mb-1'>{p.itemTitle}</h1>
                                 <h1 className='font-bold tracking-tight leading-5 text-green-700 mb-2'><span className='font-semibold tracking-tight leading-5 text-black'>Price:</span> ${p.price}</h1>
                             </div>
-                            <Link className=' w-[2vw] h-[2vw] bg-zinc-200 rounded-full text-black text-lg font-bold flex items-center justify-center hover:scale-110' to={`/admin/menuItemsDetails/${p._id}`}><IoEyeOutline /></Link>
+                            <Link className=' w-[2vw] h-[2vw] bg-zinc-200 rounded-full text-black text-lg font-bold flex items-center justify-center hover:scale-110' to={`/restaurant_manager/menuItemsDetails/${p._id}`}><IoEyeOutline /></Link>
                         </div>
                     </div>
                 ))}

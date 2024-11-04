@@ -26,19 +26,20 @@ const App = () => {
             <Route path="/register" element={<Register />} />
             <Route path="/signin" element={<SignIn />} />
             <Route path="/restaurant_manager" element={<AdminDashboard />}>
-                <Route path="" element={<Dashboard_UI/>} />
-                <Route path="profile" element={<Profile/>} />
+                {/* Index route for /restaurant_manager */}
+                <Route index element={<Dashboard_UI />} />
+                <Route path="profile" element={<Profile />} />
                 <Route path="menu" element={<MenuManagement />} />
-                <Route path='CreateMenuItem' element={<CreateMenuItem/>} />
-                <Route path='menuItemsDetails/:id' element={<MenuItemsDetails/>} />
+                <Route path="CreateMenuItem" element={<CreateMenuItem />} />
+                <Route path="menuItemsDetails/:id" element={<MenuItemsDetails />} />
                 <Route path="amenity" element={<AmenitiesManagement />} />
-                <Route path="CreateAmenity" element={<CreateAmenities/>} />
-                <Route path='AmenityDetails/:id' element={<AmenityDetails/>} />
+                <Route path="CreateAmenity" element={<CreateAmenities />} />
+                <Route path="AmenityDetails/:id" element={<AmenityDetails />} />
                 <Route path="Space" element={<SpacesManagement />} />
-                <Route path='CreateSpace' element={<CreateSpace/>} />
-                <Route path='SpaceDetails/:id' element={<SpaceDetails/>} />
+                <Route path="CreateSpace" element={<CreateSpace />} />
+                <Route path="SpaceDetails/:id" element={<SpaceDetails />} />
             </Route>
-            <Route path="/admin" element={<Admin/>}></Route>
+            <Route path="/admin" element={<Admin />} />
         </Routes>
     );
 };

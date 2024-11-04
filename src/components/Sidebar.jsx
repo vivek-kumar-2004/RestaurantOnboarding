@@ -19,11 +19,11 @@ const Sidebar = ({ open, setOpen }) => {
     };
 
     const Menus = [
-        { title: "Dashboard", icon: <IoHome />, path: "/admin" },
-        { title: "Profile", icon: <FaCircleUser />, gap: true, path: "/admin/profile" },
-        { title: "Menu", icon: <BiSolidFoodMenu />, path: "/admin/menu" },
-        { title: "Amenity", icon: <BiSolidCool />, path: "/admin/amenity" },
-        { title: "Space", icon: <TbSpaces />, path: "/admin/space" },
+        { title: "Dashboard", icon: <IoHome />, path: "/restaurant_manager" },
+        { title: "Profile", icon: <FaCircleUser />, gap: true, path: "/restaurant_manager/profile" },
+        { title: "Menu", icon: <BiSolidFoodMenu />, path: "/restaurant_manager/menu" },
+        { title: "Amenity", icon: <BiSolidCool />, path: "/restaurant_manager/amenity" },
+        { title: "Space", icon: <TbSpaces />, path: "/restaurant_manager/space" },
     ];
 
     const Logout = [

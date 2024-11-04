@@ -18,13 +18,12 @@ const SignIn = () => {
             const response = await axios.post('/api/auth/login', formData);
             console.log("Login response:", response.data);
             localStorage.setItem('token', response.data.token);
-            // localStorage.setItem('user', JSON.stringify(response.data.user));
 
-            // Role-based redirection
+            // Role-based redirection with corrected lowercase path
             if (response.data.user.role === 'admin') {
                 navigate('/admin');
             } else if (response.data.user.role === 'restaurant_manager') {
-                navigate('/RestaurantManager');
+                navigate('/restaurant_manager');
             } else {
                 alert('Invalid role');
             }

@@ -37,7 +37,7 @@ const SpacesManagement = () => {
             <div className='sticky top-0 z-50 bg-white shadow-xl bg-white border-b-2 border-t-2 border-r-2 border-gray-400'>
                 <h2 className="text-3xl text-black text-center font-bold  pt-3 mb-4">Space Management</h2>
                 <div className={`flex justify-between item-center  ${open ? 'px-[4.1vw]' : 'pl-[1.2vw] pr-[2.3vw]' } `}>
-                    <Link to="/admin/CreateSpace">
+                    <Link to="/restaurant_manager/CreateSpace">
                         <button className='py-2 px-3 bg-red-800 rounded-lg text-white font-semibold mb-6'>Add New Space</button>
                     </Link>
                     <div>
@@ -59,7 +59,7 @@ const SpacesManagement = () => {
                         </div>
                         <div className='w-full h-[10vh]  flex justify-between px-3 pt-2'>
                             <h1 className='font-bold tracking-tight text-black leading-5 text-xl mb-1'>{p.spaceTitle}</h1>
-                            <Link className=' w-[2vw] h-[2vw] bg-zinc-200 rounded-full text-black text-lg font-bold flex items-center justify-center hover:scale-110' to={`/admin/SpaceDetails/${p._id}`}><IoEyeOutline /></Link>
+                            <Link className=' w-[2vw] h-[2vw] bg-zinc-200 rounded-full text-black text-lg font-bold flex items-center justify-center hover:scale-110' to={`/restaurant_manager/SpaceDetails/${p._id}`}><IoEyeOutline /></Link>
                         </div>
                     </div>
                 ))}
