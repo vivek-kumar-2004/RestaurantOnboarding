@@ -27,7 +27,7 @@ const Sidebar = ({ open, setOpen }) => {
     ];
 
     const Logout = [
-        { title: "Logout", icon: <CiLogout />, gap: true, path: "/admin" },
+        { title: "Logout", icon: <CiLogout />, gap: true, path: "/" },
     ];
 
     return (
